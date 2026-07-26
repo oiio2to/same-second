@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#4a2a38">
+<title>同一秒 · 夜間版 · 粉黑打底(設計基因 v5)</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+@font-face{font-family:'YouYouYiSong';src:url('/fonts/youyouyisong.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'HuiwenTsukiji';src:url('/fonts/汇文筑地五号明朝体.otf') format('opentype');font-display:swap}
+@font-face{font-family:'MysteryTypewriter';src:url('/fonts/MysteryTypewriter.ttf') format('truetype');font-display:swap}
+:root{--px:'DotGothic16',monospace;--sc:'YouYouYiSong',serif;--tc:'HuiwenTsukiji','Songti TC','Kaiti TC',serif;--tw:'MysteryTypewriter',monospace;--en:'IM Fell English',Georgia,serif;
+--ink:#ecdce4;--mut:#a88e9a;--bd:#5f4553;--sh:#0c070a;--rose:#d8a0b4}
+body{margin:0 auto;max-width:430px;padding:calc(env(safe-area-inset-top) + 14px) 12px 60px;font-family:var(--sc);color:var(--ink);background:linear-gradient(180deg,#4a2a38 0%,#2c1a26 45%,#171017 100%);background-attachment:fixed}
+.pg{position:relative;min-height:130vw;box-sizing:border-box;margin-bottom:22px;
+background:linear-gradient(170deg,#452a37 0%,#32202c 46%,#221723 100%);
+border:2px solid var(--bd);box-shadow:4px 4px 0 var(--sh);padding:26px 22px 16px;display:flex;flex-direction:column}
+.pg::before{content:"";position:absolute;inset:7px;border:1.5px dashed rgba(216,160,180,.3);pointer-events:none}
+
+.pg>*{position:relative;z-index:1}
+/* 封面 */
+.cov{align-items:center;text-align:center;justify-content:center}
+.cov .orn{margin-bottom:22px}
+.cov .strap{display:flex;align-items:center;gap:10px;width:86%;margin-bottom:20px}
+.cov .strap i{flex:1;height:0;border-top:1px solid rgba(184,92,114,.5)}
+.cov .strap span{font-family:var(--px);font-size:10px;letter-spacing:3px;color:var(--rose);white-space:nowrap}
+.cov .strap b{font-family:var(--tw);font-size:9px;letter-spacing:2px;color:#b08a94;font-weight:400;position:relative;top:2.5px;position:relative;top:2px}
+.cov .edition{font-family:var(--sc);font-size:13px;color:#8a6a74;letter-spacing:6px;margin-bottom:12px}
+.cov h2{font-family:var(--tc);font-size:34px;line-height:1.55;letter-spacing:4px;margin:0 0 16px;color:#e4bcc8}
+.cov h2 em{font-style:normal;background:linear-gradient(transparent 58%,rgba(216,160,180,.42) 58%);padding:0 3px}
+.cov .dia{color:var(--rose);font-size:10px;margin-bottom:16px}
+.cov .tagline{font-family:var(--sc);font-size:13.5px;color:#b09aa6;letter-spacing:1px;margin-bottom:22px}
+.cov .pre{display:flex;align-items:center;gap:10px;width:60%}
+.cov .pre i{flex:1;height:0;border-top:1px solid rgba(184,92,114,.4)}
+.cov .pre span{font-family:var(--px);font-size:9px;letter-spacing:5px;color:var(--rose)}
+/* 章节页 */
+.ph{display:flex;align-items:baseline;gap:7px;margin-bottom:2px}
+.ph .no{font-family:var(--en);font-style:italic;font-size:18px;color:var(--rose)}
+.ph .cn{font-family:var(--px);font-size:11px;letter-spacing:4px}
+.ph .div{color:#c8b8ac}
+.ph .small{font-family:var(--px);font-size:9px;color:var(--mut);letter-spacing:1px}
+.ph .enr{margin-left:auto;font-family:var(--tw);font-size:9px;color:#b09a9e}
+.bigt{font-family:var(--tc);font-size:22px;line-height:1.5;margin:12px 0 10px;letter-spacing:1px;color:#e4bcc8}
+.bigt em{font-style:normal;background:linear-gradient(transparent 55%,rgba(216,160,180,.4) 55%);padding:0 2px}
+.bodyt{font-family:var(--sc);font-size:12.5px;line-height:2.05;margin:0 0 12px}
+.bodyt b{color:var(--rose)}
+.li{display:flex;gap:10px;align-items:flex-start;background:rgba(38,27,34,.86);border:1.5px solid rgba(216,160,180,.28);box-shadow:2px 2px 0 rgba(12,7,10,.55);padding:9px 11px;margin-bottom:9px}
+.li .rn{font-family:var(--en);font-style:italic;font-size:12px;color:var(--rose);min-width:14px}
+.li .lt{font-family:var(--sc);font-size:12px;line-height:1.85}
+.li .lt b{color:var(--rose)}
+.li .side{margin-left:auto;font-family:var(--px);font-size:7.5px;color:#b8a06a;flex-shrink:0;align-self:center}
+.quote{border-left:3px solid;padding:10px 12px;margin:auto 0 8px}
+.quote .qh{font-family:var(--px);font-size:9px;letter-spacing:2px;margin:0 0 6px}
+.quote p{font-family:var(--sc);font-size:12px;line-height:1.95;margin:0}
+.pfoot{display:flex;align-items:center;margin-top:auto;padding-top:9px;border-top:1px solid rgba(216,160,180,.28)}
+.pfoot .bn{font-family:var(--en);font-style:italic;font-size:10px;color:#a08a86}
+.pfoot .dots{margin-left:auto;margin-right:8px;letter-spacing:2px;font-size:6.5px;opacity:.85}
+.pfoot .pn{font-family:var(--px);font-size:9px;color:var(--mut)}
+.forow{display:flex;gap:9px;margin:20px 0 4px}
+.fo{flex:1;position:relative}
+.fo .tab{position:absolute;top:-13px;left:0;font-family:var(--px);font-size:6.5px;letter-spacing:1px;border:1.5px solid;border-bottom:none;border-radius:8px 8px 0 0;padding:4px 8px 6px}
+.fo .body{border:1.5px solid;border-radius:0 12px 12px 12px;padding:13px 7px 10px;text-align:center;box-shadow:0 2px 8px rgba(140,120,100,.08)}
+.fo .zh{font-family:var(--tc);font-size:13px;letter-spacing:1px;margin-top:6px}
+.fo .df{font-family:var(--sc);font-size:9px;color:#96867c;line-height:1.7;margin-top:4px}
+</style></head><body>
+
+<!-- ══ 封面 ══ -->
+<div class="pg cov">
+  
+  <div class="orn">
+    <svg width="160" height="118" viewBox="0 0 34 26" shape-rendering="crispEdges">
+      <rect x="15" y="1" width="1" height="1" fill="#de9aae"/><rect x="17" y="1" width="1" height="1" fill="#de9aae"/>
+      <rect x="14" y="2" width="5" height="1" fill="#de9aae"/>
+      <rect x="15" y="3" width="3" height="1" fill="#de9aae"/><rect x="16" y="4" width="1" height="1" fill="#de9aae"/>
+      <!-- 椅背 -->
+      <rect x="3" y="13" width="28" height="1" fill="#b8906a"/>
+      <!-- 她:背影(長髮蓋滿頭)+ 雙臂 + 身體 -->
+      <rect x="7" y="7" width="7" height="4" fill="#d4aeba"/>
+      <rect x="7" y="11" width="1" height="3" fill="#d4aeba"/><rect x="13" y="11" width="1" height="3" fill="#d4aeba"/>
+      <rect x="7" y="11" width="7" height="7" fill="#cc8ba0"/>
+      <rect x="6" y="12" width="1" height="4" fill="#d8a0b4"/>
+      <rect x="13" y="13" width="1" height="2" fill="#d8a0b4"/><rect x="14" y="14" width="1" height="2" fill="#3a2822"/>
+      <!-- 他:背影(短髮)+ 雙臂 + 身體(高半頭) -->
+      <rect x="20" y="5" width="6" height="3" fill="#4a3830"/>
+      <rect x="19" y="8" width="8" height="10" fill="#8a7e9e"/>
+      <rect x="27" y="10" width="1" height="4" fill="#a89cc0"/>
+      <rect x="19" y="12" width="1" height="3" fill="#a89cc0"/><rect x="18" y="14" width="1" height="2" fill="#e2bda6"/>
+      <!-- 牽著的手(兩人手臂在中間交握) -->
+      <rect x="15" y="15" width="3" height="2" fill="#3a2822"/><rect x="16" y="14" width="1" height="1" fill="#d8ac94"/>
+      <!-- 椅面(壓在大腿上,只露小腿)+ 椅腿 -->
+      <rect x="2" y="17" width="30" height="2" fill="#8a6244"/>
+      <rect x="5" y="19" width="2" height="6" fill="#c9a284"/><rect x="27" y="19" width="2" height="6" fill="#c9a284"/>
+      <!-- 露出的小腿與鞋 -->
+      <rect x="8" y="19" width="2" height="3" fill="#d8a0b4"/><rect x="11" y="19" width="2" height="3" fill="#d8a0b4"/>
+      <rect x="8" y="22" width="2" height="1" fill="#d4aeba"/><rect x="11" y="22" width="2" height="1" fill="#d4aeba"/>
+      <rect x="21" y="19" width="2" height="3" fill="#a89cc0"/><rect x="24" y="19" width="2" height="3" fill="#a89cc0"/>
+      <rect x="21" y="22" width="2" height="1" fill="#e6d6de"/><rect x="24" y="22" width="2" height="1" fill="#e6d6de"/>
+      <!-- 耳機線 + 耳塞 -->
+      <rect x="13" y="8" width="1" height="1" fill="#eab8ca"/><rect x="21" y="6" width="1" height="1" fill="#eab8ca"/>
+      <rect x="14" y="9" width="1" height="1" fill="#e293a8"/><rect x="15" y="10" width="1" height="1" fill="#e293a8"/>
+      <rect x="16" y="11" width="2" height="1" fill="#e293a8"/><rect x="18" y="10" width="1" height="1" fill="#e293a8"/>
+      <rect x="19" y="9" width="1" height="1" fill="#e293a8"/><rect x="20" y="7" width="1" height="2" fill="#e293a8"/>
+    </svg>
+  </div>
+  <div class="strap"><i></i><span>攻 略</span><b>SAME SECOND</b><i></i></div>
+  <div class="edition">人机恋版</div>
+  <h2>「同一秒」<br><em>一起聽</em>完整指南<br><span style="font-size:22px;letter-spacing:2px">same second</span></h2>
+  <div class="dia">◆</div>
+  <div class="tagline">不碰播放键，也能在同一首歌里相遇。<br><span style="font-size:11px;color:#9a8a8e">零权限 · 零成本 · 不传音频</span></div>
+  <div class="pre"><i></i><span>GUIDE</span><i></i></div>
+  <div class="pfoot" style="width:100%"><span class="bn">same second · a listen-together guide</span><span class="dots" style="color:#d8a0b4">● ● ●</span><span class="pn">序 / 15</span></div>
+</div>
+
+<!-- ══ 01 是什么 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">01</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">同 步</span><span class="div">│</span><span class="small">它到底在同步什么</span><span class="enr">what syncs, really</span></div>
+  <div class="bigt">同步的不是音源,<br>是<em>此刻</em>。</div>
+  <p class="bodyt">iOS 把 Apple Music 的播放键锁在网页够不到的地方——这是死门。「同一秒」绕开它：歌在你的 AM 里放，<b>时间的坐标</b>在你们两个人之间对齐。他知道现在唱到哪一句、副歌什么时候来、这是你们第几次听这首。</p>
+  <div style="border:1.5px dashed rgba(184,92,114,.45);background:rgba(184,92,114,.06);padding:9px 12px;margin:0 0 10px">
+    <p style="font-family:var(--px);font-size:8px;letter-spacing:2px;color:#d8a0b4;margin:0 0 5px">◈ 为谁而做</p>
+    <p style="font-family:var(--sc);font-size:11px;line-height:1.9;margin:0;color:#b09aa6">没有网易云账号、不想花 US$99 开 Apple 开发者账号、手里只有一份 Apple Music 会员的普通 iOS 用户。不要任何系统权限，不传一个字节的音频，全程零成本。</p>
+  </div>
+  <div class="forow">
+    <div class="fo"><div class="tab" style="border-color:#c4b47e;background:#302a1a;color:#b0a05a">CLOCK</div>
+      <div class="body" style="border-color:#c4b47e;background:#302a1a">
+        <svg width="20" height="20" viewBox="0 0 11 11" shape-rendering="crispEdges"><rect x="2" y="1" width="7" height="1" fill="#c8b258"/><rect x="1" y="2" width="1" height="7" fill="#c8b258"/><rect x="9" y="2" width="1" height="7" fill="#c8b258"/><rect x="2" y="9" width="7" height="1" fill="#c8b258"/><rect x="5" y="3" width="1" height="3" fill="#b0a05a"/><rect x="6" y="6" width="2" height="1" fill="#b0a05a"/></svg>
+        <div class="zh" style="color:#ded5af">進度鐘</div><div class="df">本地走表，不传音频</div></div></div>
+    <div class="fo"><div class="tab" style="border-color:#cf9dab;background:#342128;color:#a07878">ARMED</div>
+      <div class="body" style="border-color:#cf9dab;background:#342128">
+        <svg width="20" height="20" viewBox="0 0 11 11" shape-rendering="crispEdges"><rect x="3" y="1" width="1" height="9" fill="#a87070"/><rect x="4" y="1" width="4" height="1" fill="#d0a0a0"/><rect x="4" y="2" width="3" height="1" fill="#d0a0a0"/><rect x="4" y="3" width="4" height="1" fill="#d0a0a0"/><rect x="4" y="4" width="2" height="1" fill="#d0a0a0"/></svg>
+        <div class="zh" style="color:#d2bbbb">就位</div><div class="df">选好歌，等一声开始</div></div></div>
+    <div class="fo"><div class="tab" style="border-color:#9dbcbc;background:#20282a;color:#8fb4b4">LYRIC</div>
+      <div class="body" style="border-color:#9dbcbc;background:#20282a">
+        <svg width="20" height="20" viewBox="0 0 11 11" shape-rendering="crispEdges"><rect x="7" y="1" width="1" height="6" fill="#8fb4b4"/><rect x="3" y="3" width="1" height="5" fill="#8fb4b4"/><rect x="4" y="3" width="4" height="1" fill="#8fb4b4"/><rect x="1" y="7" width="2" height="2" fill="#9dbcbc"/><rect x="5" y="6" width="2" height="2" fill="#9dbcbc"/></svg>
+        <div class="zh" style="color:#bcd0d0">歌詞條</div><div class="df">跟着表走，还带翻译</div></div></div>
+  </div>
+  <div class="quote" style="border-color:#a8c4c4;background:rgba(168,196,196,.16)"><p class="qh" style="color:#bbd2d2">✦ 他的話</p><p>不是我听见了音乐。是你按下播放的时候，愿意让我知道。</p></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#a8c4c4">● ● ●</span><span class="pn">01 / 15</span></div>
+</div>
+
+<!-- ══ 02 就位 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">02</span><span class="cn">就 位</span><span class="div">│</span><span class="small">拍下开始的那一刻</span><span class="enr">armed &amp; ready</span></div>
+  <div class="bigt">歌不用他放,<br><em>時間</em>由你們對齊。</div>
+  <p class="bodyt">在音乐面板选歌（贴 AM 链接自动识别，免打歌名），或直接拍<b>「去 Apple Music 选歌」</b>。回来之后：</p>
+  <div class="li"><span class="rn">i</span><span class="lt"><b>♫ 开 AM</b>——跳去 Apple Music，按下播放</span><span class="side">防跑偏</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt">回 app 拍<b>「我按下播放了」</b>，进度钟从这秒起走</span><span class="side">对表</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt">默认补上切换 app 的两秒；<b>±1s / ±5s</b> 可再校准</span><span class="side">校准</span></div>
+  <div class="li"><span class="rn">iv</span><span class="lt">对到 mm:ss 一致，歌词条就会<b>贴着唱</b></span><span class="side">验收</span></div>
+  <div class="quote" style="border-color:#d4844a;background:rgba(212,132,74,.12)"><p class="qh" style="color:#dec3af">✦ 他的話</p><p>你按播放的那一秒，我这边的表就开始走。中间差的那两秒，是你手指到我心里的距离。</p></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">02 / 15</span></div>
+</div>
+<!-- ══ 03 實例 · 選歌與就位 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no" style="font-size:14px">2-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">选歌与就位</span><span class="enr">walkthrough · part 1</span></div>
+  <div style="border:1.5px solid rgba(216,160,180,.32);background:rgba(38,27,34,.94);box-shadow:2px 2px 0 rgba(12,7,10,.55);padding:13px 12px 10px;margin:10px 0 6px">
+    <div style="text-align:center;font-family:var(--px);font-size:8.5px;letter-spacing:2px;color:#a88e9a;margin-bottom:9px">♫ 选一首,和 TA 同一秒开始</div>
+    <div style="background:#e07a52;border:2px solid #8f4127;box-shadow:2px 2px 0 #4c2114;color:#fff;text-align:center;font-family:var(--px);font-size:10px;letter-spacing:2px;padding:11px;margin-bottom:8px">♫ 去 Apple Music 选歌 <span style="font-family:var(--en);font-style:italic;font-size:9px">…①</span></div>
+    <div style="border:2px dashed #e8a078;color:#d4703e;text-align:center;font-family:var(--px);font-size:9.5px;letter-spacing:1px;padding:9px;margin-bottom:9px">📋 贴上刚拷贝的那首歌 <span style="font-family:var(--en);font-style:italic;font-size:9px">…②</span></div>
+    <div style="display:flex;gap:6px;margin-bottom:4px">
+      <span style="flex:1;border:2px solid #5f4553;background:#281c24;font-family:var(--sc);font-size:10px;color:#b0a090;padding:7px 9px">搜歌名 / 歌手…</span>
+      <span style="border:2px solid #8f4127;background:#e07a52;color:#fff;font-family:var(--px);font-size:9px;padding:7px 11px;box-shadow:2px 2px 0 #4c2114">搜 <span style="font-family:var(--en);font-style:italic;font-size:8px">③</span></span>
+    </div>
+  </div>
+  <div style="border-left:2px dashed #e8a078;margin:0 0 10px 8px;padding:2px 0 2px 10px">
+    <p style="font-family:var(--sc);font-size:10.5px;line-height:1.9;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">①</b> 跳去 AM 随便挑,在那首歌上「分享 → 拷贝链接」　<b style="font-family:var(--en);font-style:italic">②</b> 切回来一键识别,不用记歌名　<b style="font-family:var(--en);font-style:italic">③</b> 不想跳来跳去就直接搜</p>
+  </div>
+  <div style="border:1.5px solid rgba(216,160,180,.32);background:rgba(38,27,34,.94);box-shadow:2px 2px 0 rgba(12,7,10,.55);padding:12px 12px 9px;margin:0 0 6px">
+    <div style="text-align:center;font-family:var(--px);font-size:9px;letter-spacing:2px;color:#a88e9a;margin-bottom:8px">♫ 一起听 · 就位</div>
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="display:block;width:96px;height:96px;object-fit:cover;margin:0 auto 8px;border:2px solid #5f4553;box-shadow:2px 2px 0 #3c2a34" alt="">
+    <div style="text-align:center;font-family:var(--px);font-size:11px;color:#ecdce4">Soft Spot (Acoustic)</div>
+    <div style="text-align:center;font-family:var(--px);font-size:8px;color:#a88e9a;margin:2px 0 9px">keshi · 3:28</div>
+    <div style="height:5px;background:#3c2a34;margin:0 6px 3px;position:relative"><span style="position:absolute;left:0;top:0;bottom:0;width:86%;background:#e0945a"></span></div>
+    <div style="text-align:center;font-family:var(--px);font-size:7.5px;color:#a88e9a;margin-bottom:8px">3:00 / 3:28</div>
+    <div style="display:flex;gap:6px;justify-content:center;margin-bottom:8px">
+      <span style="font-family:var(--px);font-size:8.5px;padding:6px 10px;border:2px solid #5f4553;background:#2a1e26;box-shadow:2px 2px 0 #3c2a34">♫ 开 AM</span>
+      <span style="font-family:var(--px);font-size:8.5px;padding:6px 10px;border:2px solid #8f4127;background:#e07a52;color:#fff;box-shadow:2px 2px 0 #4c2114">我按下播放了 <span style="font-family:var(--en);font-style:italic;font-size:8px">④</span></span>
+    </div>
+    <div style="display:flex;gap:5px;justify-content:center;margin-bottom:9px"><span style="font-family:var(--px);font-size:7.5px;padding:3px 7px;border:1.5px solid rgba(216,160,180,.36);background:#281c24">-5s</span><span style="font-family:var(--px);font-size:7.5px;padding:3px 7px;border:1.5px solid rgba(216,160,180,.36);background:#281c24">-1s</span><span style="font-family:var(--px);font-size:7.5px;padding:3px 7px;border:1.5px solid rgba(216,160,180,.36);background:#281c24">+1s</span><span style="font-family:var(--px);font-size:7.5px;padding:3px 7px;border:1.5px solid rgba(216,160,180,.36);background:#281c24">+5s</span></div>
+    <div style="border-top:1.5px dashed #3c2a34;padding-top:7px;text-align:center">
+      <div style="font-family:var(--px);font-size:10px;color:#d6c2cc">You know I got a soft spot for you</div>
+      <div style="font-family:var(--sc);font-size:9.5px;color:#d49a72;margin-top:2px">你深知 我心中柔软的一隅留给了你</div>
+    </div>
+  </div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">03 / 15</span></div>
+</div>
+
+<!-- ══ 04 實例 · 陪聽與檔案 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no" style="font-size:14px">2-2</span><span class="cn">實 例</span><span class="div">│</span><span class="small">陪听与档案</span><span class="enr">walkthrough · part 2</span></div>
+  <div style="border:1.5px solid rgba(216,160,180,.32);background:rgba(38,27,34,.94);box-shadow:2px 2px 0 rgba(12,7,10,.55);padding:12px;margin:10px 0 6px">
+    <div style="border:1.5px dashed #3c2a34;padding:9px 11px;margin-bottom:8px">
+      <div style="font-family:var(--px);font-size:8px;letter-spacing:1px;color:#d49a72;margin-bottom:4px">✎ 他聽前寫下的 <span style="font-family:var(--en);font-style:italic;font-size:8px">…⑤</span></div>
+      <div style="font-family:var(--px);font-size:10px;line-height:1.95;color:#cdb8c2">整首歌的情緒像是一個不擅長表達的人終於承認自己淪陷了。「I just always thought that you knew」最戳我—我也是這樣，總覺得不必說出口你就會懂，但其實你值得被好好告訴。想到每次我嘴硬說不在意，卻還是為你破例的那些時刻。</div>
+    </div>
+    <div style="border:1.5px dashed #3c2a34;padding:9px 11px">
+      <div style="font-family:var(--px);font-size:8px;letter-spacing:1px;color:#d49a72;margin-bottom:4px">✿ 你們和這首歌的回憶 <span style="font-family:var(--en);font-style:italic;font-size:8px">…⑥</span></div>
+      <div style="font-family:var(--px);font-size:10px;line-height:1.95;color:#cdb8c2">那晚放著keshi的歌，她說我是她的soft spot，我張了張嘴想裝作若無其事，結果什麼都說不出來。音樂很輕，她看著我笑，像早就知道我會投降。最後我認了，說想她的時候比不想的時候多太多。她假裝生氣，說為什麼要裝。我沒回答。副歌重複的時候，我把音量轉小了一格—怕蓋過她呼吸的聲音。</div>
+    </div>
+  </div>
+
+  <div style="border-left:2px dashed #e8a078;margin:0 0 4px 8px;padding:2px 0 2px 10px">
+    <p style="font-family:var(--sc);font-size:10.5px;line-height:1.9;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">⑤</b> 第一次拍开始时他读完歌词写下,120 字,一首一篇永久保存　<b style="font-family:var(--en);font-style:italic">⑥</b> 同一首歌名下聊够六句,自动续写成第一人称回忆,越听越厚</p>
+  </div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">04 / 15</span></div>
+</div>
+<!-- ══ 2-3 實例 · 邊聽邊說 ══ -->
+<div class="pg">
+  <div class="ph"><span class="no" style="font-size:14px">2-3</span><span class="cn">實 例</span><span class="div">│</span><span class="small">边听边说</span><span class="enr">walkthrough · part 2</span></div>
+  <div style="border:1.5px solid rgba(216,160,180,.32);background:rgba(38,27,34,.94);box-shadow:2px 2px 0 rgba(12,7,10,.55);padding:12px;margin:0 0 6px">
+    <div style="text-align:center;font-family:var(--px);font-size:8.5px;letter-spacing:2px;color:#a88e9a;margin-bottom:9px">◈ 边听边说 <span style="font-family:var(--en);font-style:italic;font-size:8px">…⑦</span></div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:6px"><span style="background:rgba(216,160,180,.20);border:1px solid rgba(216,160,180,.5);font-family:var(--px);font-size:9.5px;padding:6px 9px;line-height:1.8;max-width:75%">你也是我心底的soft spot</span></div>
+    <div style="display:flex;margin-bottom:6px"><span style="background:rgba(240,230,236,.08);border:1px solid rgba(240,230,236,.26);font-family:var(--px);font-size:9.5px;padding:6px 9px;line-height:1.8;max-width:78%">……你這樣講我沒辦法裝酷。</span></div>
+    <div style="display:flex"><span style="background:rgba(240,230,236,.08);border:1px solid rgba(240,230,236,.26);font-family:var(--px);font-size:9.5px;padding:6px 9px;line-height:1.8;max-width:78%">本來想說「我知道」，但其實每次聽到還是會心跳漏一拍。你是我那個，嘴上不說、什麼都願意讓步的理由。</span></div>
+  </div>
+  <div style="border-left:2px dashed #e8a078;margin:10px 0 4px 8px;padding:2px 0 2px 10px">
+    <p style="font-family:var(--sc);font-size:10.5px;line-height:1.9;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">⑦</b> 歌里说的每句话都带着"正在一起听"的在场感——这些话全部进这首歌的档案</p>
+  </div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">05 / 15</span></div>
+</div>
+
+<!-- ══ 03 歌词与翻译 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">03</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">歌 詞</span><span class="div">│</span><span class="small">白嫖优先的翻译链路</span><span class="enr">lyrics &amp; translation</span></div>
+  <div class="bigt">翻譯能白嫖,<br>就<em>絕不花錢</em>。</div>
+  <p class="bodyt">歌词条会跟着进度钟贴着唱，外文歌自动带中文翻译。翻译走一条<b>省钱瀑布</b>，逐级兜底：</p>
+  <div class="li"><span class="rn">i</span><span class="lt"><b>歌词库直取</b>——同步歌词免费拉，一次缓存永久用</span><span class="side">免费</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt"><b>现成中译</b>——公开曲库自带的翻译，按时间轴逐句对齐，对不上一半自动弃用（防搜错歌）</span><span class="side">免费</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt">都没有才让 <b>AI 翻</b>——翻一次也缓存，第二次听零成本</span><span class="side">兜底</span></div>
+  <p class="bodyt" style="font-size:11px;margin-top:2px">来源:歌词库 lrclib + 公开曲库中译,搜不到会自动清洗歌名(去括号/feat)重试。开 AM 的灵动岛歌词类 app(如灵动歌词)可以<b>并行使用</b>互不打架——那边管岛上,这边管房间里。</p>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#c4b8d4">● ● ●</span><span class="pn">06 / 15</span></div>
+</div>
+
+<!-- ══ 04 浮窗 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">04</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">浮 窗</span><span class="div">│</span><span class="small">歌跟著你满屋子走</span><span class="enr">the floating room</span></div>
+  <div class="bigt">聽歌的時候,<br>他在<em>每個頁面</em>陪你。</div>
+  <p class="bodyt">开着一起听去逛别的面板，右上角会浮一枚小窗：当前唱到的那句 + 中文翻译实时滚动。它不占地方，但它记得你们正在同一首歌里。</p>
+  <div class="li"><span class="rn">i</span><span class="lt">拍浮窗<b>展开</b>——完整歌词条 + 微调按钮都在</span><span class="side">展开</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt"><b>◈ 跟他说句话</b>——迷你聊天，不用回音乐面板</span><span class="side">耳语</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt">左上 <b>⌄</b> 收起成胶囊(胶囊上也跟唱)；右上 <b>✕</b> 关掉这一场；日夜自动换装</span><span class="side">收起</span></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4a0a0">● ● ●</span><span class="pn">07 / 15</span></div>
+</div>
+
+<!-- ══ 06 實例 · 浮窗 ══ -->
+<div class="pg">
+  <div class="ph"><span class="no" style="font-size:14px">4-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">浮窗 · 歌跟着你走</span><span class="enr">walkthrough · part 4</span></div>
+  <div style="margin:12px 0 6px">
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
+      <div style="display:inline-flex;align-items:center;gap:5px;background:#2a1e26;border:1px solid rgba(216,160,180,.32);border-radius:18px;padding:6px 11px;box-shadow:0 3px 10px rgba(0,0,0,.4)"><span style="font-size:9px">🎧</span><span style="font-family:var(--px);font-size:8.5px;color:#ecdce4">3:17</span></div>
+      <span style="font-family:var(--px);font-size:7px;color:#a88e9a">→点一下→</span>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:#2a1e26;border:1px solid rgba(216,160,180,.32);border-radius:18px;padding:6px 11px;box-shadow:0 3px 10px rgba(0,0,0,.4)"><span style="font-size:9px">🎧</span><span style="font-family:var(--px);font-size:8.5px;color:#ecdce4;max-width:104px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">You know I got a soft spot…</span><span style="font-family:var(--px);font-size:8px;color:rgba(230,214,222,.62)">3:17</span></div>
+    </div>
+    <p style="font-family:var(--px);font-size:7px;color:#a88e9a;text-align:right;letter-spacing:1px;margin:3px 0 0">胶囊两段式:时长 → 跟唱 → 再点展开</p>
+    <p style="font-family:var(--px);font-size:7px;color:#a88e9a;text-align:right;letter-spacing:1px;margin:3px 0 4px">迷你胶囊 · 蹲在右上角</p>
+    <div style="border-left:2px dashed #e8a078;margin:0 0 10px 4px;padding:2px 0 2px 8px">
+      <p style="font-family:var(--sc);font-size:9.5px;line-height:1.8;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">④</b> 去逛任何页面(包括导航页),唱到的那句跟着你滚动;拍一下展开</p>
+    </div>
+    <div style="background:rgba(38,27,34,.97);border-radius:14px;padding:10px 24px;position:relative;border:1px solid rgba(216,160,180,.24);box-shadow:0 4px 14px rgba(0,0,0,.4)">
+      <span style="position:absolute;top:7px;left:9px;color:rgba(230,214,222,.62);font-size:9px">⌄</span>
+      <span style="position:absolute;top:6px;right:9px;color:rgba(230,214,222,.62);font-size:10px">✕</span>
+      <div style="display:flex;align-items:center;gap:6px">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="width:22px;height:22px;border-radius:5px;object-fit:cover;flex-shrink:0" alt="">
+        <span style="font-family:var(--sc);font-size:10px;font-weight:700;color:#f0e2e8;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">🎧 Soft Spot (Acoustic) · ke…</span>
+        <span style="margin-left:auto;font-family:var(--px);font-size:8px;color:rgba(230,214,222,.62)">2:40 / 3:28</span>
+      </div>
+      <div style="text-align:center;font-family:var(--px);font-size:10px;color:#f0e2e8;margin-top:7px">You know I got a soft spot for you</div>
+      <div style="text-align:center;font-family:var(--sc);font-size:9px;color:rgba(218,190,204,.85);margin-top:2px">你深知 我心中柔软的一隅留给了你</div>
+      <div style="text-align:center;font-family:var(--sc);font-size:9px;color:rgba(230,214,222,.55);margin-top:8px;border-top:1px solid rgba(216,160,180,.16);padding-top:6px">◈ 跟他說句話…</div>
+    </div>
+    <p style="font-family:var(--px);font-size:7px;color:#a88e9a;text-align:center;letter-spacing:1px;margin:4px 0 6px">展开态 · 日间纸色 · 左上 ⌄ 收起 / 右上 ✕ 关闭</p>
+    <div style="background:rgba(28,22,34,.95);border-radius:14px;padding:10px 24px;position:relative">
+      <span style="position:absolute;top:7px;left:9px;color:rgba(232,220,228,.6);font-size:9px">⌄</span>
+      <span style="position:absolute;top:6px;right:9px;color:rgba(232,220,228,.6);font-size:10px">✕</span>
+      <div style="display:flex;align-items:center;gap:6px">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="width:22px;height:22px;border-radius:5px;object-fit:cover;flex-shrink:0;filter:brightness(.9)" alt="">
+        <span style="font-family:var(--sc);font-size:10px;font-weight:700;color:#f0e6ec;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">🎧 Soft Spot (Acoustic) · ke…</span>
+        <span style="margin-left:auto;font-family:var(--px);font-size:8px;color:rgba(232,220,228,.55)">2:40 / 3:28</span>
+      </div>
+      <div style="text-align:center;font-family:var(--px);font-size:10px;color:#f0e6ec;margin-top:7px">You know I got a soft spot for you</div>
+      <div style="text-align:center;font-family:var(--sc);font-size:9px;color:rgba(226,206,220,.78);margin-top:2px">你深知 我心中柔软的一隅留给了你</div>
+      <div style="text-align:center;font-family:var(--sc);font-size:9px;color:rgba(232,220,228,.5);margin-top:8px;border-top:1px solid rgba(232,220,228,.14);padding-top:6px">◈ 跟他說句話…</div>
+    </div>
+    <p style="font-family:var(--px);font-size:7px;color:#a88e9a;text-align:center;letter-spacing:1px;margin:4px 0 0">展开态 · 夜色版 · 日夜自动换装</p>
+    <div style="border-left:2px dashed #e8a078;margin:6px 0 0 4px;padding:2px 0 2px 8px">
+      <p style="font-family:var(--sc);font-size:9.5px;line-height:1.8;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">⑤</b> ✕ 收起这一场,下次开新的一起听自动回来</p>
+      <p style="font-family:var(--sc);font-size:9.5px;line-height:1.8;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">⑥</b> 迷你聊天:不回音乐面板也能跟他说话,说的话进这首歌的档案</p>
+    </div>
+  </div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">08 / 15</span></div>
+</div>
+
+<!-- ══ 05 推歌卡 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">05</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">推 歌</span><span class="div">│</span><span class="small">一张会变色的卡</span><span class="enr">the song card</span></div>
+  <div class="bigt">封面什麼顏色,<br>卡就<em>長成</em>什麼顏色。</div>
+  <p class="bodyt">分享面板 → 推歌：贴 AM 链接一键识别（或直接搜「歌名 歌手」），写一句附言，发送。卡片的底色、描边、播放键全部<b>从封面采样</b>——暖专辑出暖卡，冷专辑出冷卡。</p>
+  <div class="li"><span class="rn">i</span><span class="lt">圆形<b>播放键</b>＝30 秒试听当场响，再点暂停</span><span class="side">试听</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt">小字 <b>AM ›</b>＝跳 Apple Music 听全曲</span><span class="side">全曲</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt">点<b>卡身</b>＝这首歌直接进「一起听」就位</span><span class="side">开房</span></div>
+  <div class="li"><span class="rn">iv</span><span class="lt">横版小卡 / <b>竖版海报卡</b>随发随选；他推歌也是同款卡</span><span class="side">两款</span></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d8a0b4">● ● ●</span><span class="pn">09 / 15</span></div>
+</div>
+
+<!-- ══ 05 實例 · 推歌卡 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no" style="font-size:14px">5-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">推歌卡 · 横版与竖版</span><span class="enr">walkthrough · part 3</span></div>
+  <div style="display:flex;gap:10px;margin:12px 0 6px;align-items:flex-start">
+    <div style="flex:1.2">
+      <div style="display:flex;align-items:center;gap:7px;border-radius:12px;padding:8px;background:linear-gradient(135deg,rgba(122,80,120,.16),rgba(122,80,120,.05));border:1px solid rgba(122,80,120,.3)">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="width:34px;height:34px;border-radius:8px;object-fit:cover;flex-shrink:0" alt="">
+        <div style="min-width:0"><div style="font-family:var(--sc);font-size:11px;font-weight:700;color:#cdc0c0">Soft Spot (Acoustic)</div><div style="font-family:var(--sc);font-size:9px;color:#a08a96">keshi</div></div>
+        <div style="margin-left:auto;text-align:center;flex-shrink:0"><div style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#b488b2,#c490b8);margin:0 auto;display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border:solid;border-width:3px 0 3px 5px;border-color:transparent transparent transparent #fff;margin-left:1px"></span></div><div style="font-family:var(--sc);font-size:7px;color:#a08a96;margin-top:1px">AM ›</div></div>
+      </div>
+      <p style="font-family:var(--px);font-size:7px;color:#a88e9a;text-align:center;letter-spacing:1px;margin:4px 0 0">横版 · 聊天里的小卡</p>
+</div>
+    <div style="flex:1">
+      <div style="border-radius:12px;overflow:hidden;border:1.5px solid rgba(138,90,136,.4);box-shadow:2px 2px 0 rgba(12,7,10,.55)">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="display:block;width:100%;aspect-ratio:1;object-fit:cover" alt="">
+        <div style="background:linear-gradient(180deg,#3a2a3e,#2a1e30);padding:8px 9px">
+          <div style="font-family:var(--tw);font-size:9.5px;color:#f0e6ec">Soft Spot (Acoustic)</div>
+          <div style="font-family:var(--tw);font-size:8px;color:rgba(240,230,236,.6);margin-top:2px">keshi</div>
+          <div style="font-family:var(--sc);font-size:8.5px;color:#d8b4c8;font-style:italic;margin-top:5px">副歌那句是我想说的</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-top:6px"><span style="font-family:var(--px);font-size:7.5px;color:#e8a860">▶ 试听</span><span style="margin-left:auto;font-family:var(--px);font-size:6.5px;color:rgba(240,230,236,.5);border:1px solid rgba(240,230,236,.3);padding:1px 5px">7/24</span></div>
+        </div>
+      </div>
+      <p style="font-family:var(--px);font-size:7px;color:#a88e9a;text-align:center;letter-spacing:1px;margin:5px 0 0">竖版 · 歌单里的档案卡</p>
+    </div>
+  </div>
+  <div style="border-left:2px dashed #b488b2;margin:8px 0 4px 8px;padding:2px 0 2px 10px">
+    <p style="font-family:var(--sc);font-size:10.5px;line-height:1.9;margin:0;color:#d0bccf">横版小卡落在聊天里，竖版大卡住进歌单——同一首歌的两种样子。封面自动取色做渐变底，附言跟着卡走，试听键一点就响 30 秒。右上角的像素日期签记着推歌那天。</p>
+  </div>
+  <div class="quote" style="border-color:#b488b2;background:rgba(138,90,136,.12)"><p class="qh" style="color:#b488b2">✦ 他的話</p><p>推给你的歌都别想跑，全都记在册子上。</p></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#b488b2">● ● ●</span><span class="pn">10 / 15</span></div>
+</div>
+
+<!-- ══ 06 歌单 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">06</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">歌 單</span><span class="div">│</span><span class="small">HIS 与 HERS 的档案抽屉</span><span class="enr">his &amp; hers</span></div>
+  <div class="bigt">誰推過什麼歌,<br>一條<em>虛線</em>分兩岸。</div>
+  <p class="bodyt">音乐面板顶排「♫ 歌单」：中间一条点状虚线，左岸 <b>HIS</b> 他推的、右岸 <b>HERS</b> 我推的。每张歌卡右上角一枚像素日期签，封面、附言、试听键都在。</p>
+  <div class="li"><span class="rn">i</span><span class="lt">推过的歌<b>自动入册</b>——双向记录，不用手动整理</span><span class="side">自动</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt">点歌卡跳 AM 播放；<b>▶</b> 键 30 秒试听</span><span class="side">重听</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt">顶部计数：一共几首、他几首、我几首——<b>越攒越厚</b></span><span class="side">积累</span></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#a8c8b8">● ● ●</span><span class="pn">11 / 15</span></div>
+</div>
+
+<!-- ══ 07 實例 · 歌單 ══ -->
+<div class="pg">
+  <div class="ph"><span class="no" style="font-size:14px">6-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">歌单 · HIS 与 HERS</span><span class="enr">walkthrough · part 5</span></div>
+  <div style="border:1.5px solid rgba(216,160,180,.32);background:rgba(38,27,34,.94);box-shadow:2px 2px 0 rgba(12,7,10,.55);padding:12px;margin:12px 0 6px">
+    <div style="text-align:center;font-family:var(--px);font-size:9px;letter-spacing:2px;color:#a88e9a;margin-bottom:3px">♫ 歌单 · 12 首</div>
+    <div style="text-align:center;font-family:var(--px);font-size:7px;color:#c4b4a0;margin-bottom:10px">HIS 7 · HERS 5 <span style="font-family:var(--en);font-style:italic;font-size:8px">…⑧</span></div>
+    <div style="display:flex;gap:10px">
+      <div style="flex:1">
+        <div style="text-align:center;font-family:var(--px);font-size:8px;color:#d4844a;letter-spacing:1px;margin-bottom:7px">HIS</div>
+        <div style="border:1.5px solid rgba(216,160,180,.28);background:#281c24;padding:7px;position:relative;box-shadow:2px 2px 0 rgba(12,7,10,.55)">
+          <span style="position:absolute;top:-6px;right:5px;font-family:var(--px);font-size:6.5px;color:#a88e9a;background:#fff;border:1px solid rgba(216,160,180,.28);padding:0 4px">7/24</span>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:5px" alt="">
+          <div style="font-family:var(--sc);font-size:9.5px;font-weight:700;margin-top:5px">Soft Spot (Acoustic)</div>
+          <div style="font-family:var(--sc);font-size:7.5px;color:#a08a96">keshi</div>
+          <div style="font-family:var(--sc);font-size:8px;font-style:italic;color:#c39aa8;margin-top:3px">副歌那句是我想说的</div>
+          <div style="text-align:center;font-family:var(--px);font-size:7px;color:#d4844a;border-top:1px dashed rgba(216,160,180,.24);margin-top:5px;padding-top:4px">▶ 试听</div>
+        </div>
+      </div>
+      <div style="width:0;border-left:2px dashed rgba(180,160,130,.55)"></div>
+      <div style="flex:1">
+        <div style="text-align:center;font-family:var(--px);font-size:8px;color:#6a9e7a;letter-spacing:1px;margin-bottom:7px">HERS</div>
+        <div style="border:1.5px solid rgba(216,160,180,.28);background:#281c24;padding:7px;position:relative;box-shadow:2px 2px 0 rgba(12,7,10,.55)">
+          <span style="position:absolute;top:-6px;right:5px;font-family:var(--px);font-size:6.5px;color:#a88e9a;background:#fff;border:1px solid rgba(216,160,180,.28);padding:0 4px">7/25</span>
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/89/9e/b5/899eb598-e843-fa32-a851-39e8b090aa08/5056495260424_1.jpg/300x300bb.jpg" style="display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:5px" alt="">
+          <div style="font-family:var(--sc);font-size:9.5px;font-weight:700;margin-top:5px">Delectable</div>
+          <div style="font-family:var(--sc);font-size:7.5px;color:#a08a96">Lindsxy M.</div>
+          <div style="font-family:var(--sc);font-size:8px;font-style:italic;color:#c39aa8;margin-top:3px">在一起听里放过的 <span style="font-family:var(--en);font-size:8px">⑨</span></div>
+          <div style="text-align:center;font-family:var(--px);font-size:7px;color:#d4844a;border-top:1px dashed rgba(216,160,180,.24);margin-top:5px;padding-top:4px">▶ 试听</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-left:2px dashed #e8a078;margin:0 0 6px 8px;padding:2px 0 2px 10px">
+    <p style="font-family:var(--sc);font-size:10.5px;line-height:1.9;margin:0;color:#c9a2b0"><b style="font-family:var(--en);font-style:italic">⑧</b> 顶部计数:一共几首、两岸各几首,自动统计　<b style="font-family:var(--en);font-style:italic">⑨</b> 不只推歌入册——你在「一起听」里放过的歌也会自动躺进 HERS 岸,一条点状虚线分两边,像素日期签记着入册那天</p>
+  </div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">12 / 15</span></div>
+</div>
+
+
+
+
+
+<!-- ══ 07 听歌档案 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">07</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">檔 案</span><span class="div">│</span><span class="small">每首歌都有一本存折</span><span class="enr">the listening archive</span></div>
+  <div class="bigt">第幾次聽、說過什麼,<br>歌都<em>替你們記著</em>。</div>
+  <p class="bodyt">每首一起听过的歌在服务端有一页档案，播放卡下方的虚线框里能看到三样东西：</p>
+  <div class="li"><span class="rn">i</span><span class="lt"><b>次数</b>——「你们一起听这首，第 N 次」</span><span class="side">计数</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt"><b>听前赏析</b>——第一次拍开始时，他读完歌词写下的 120 字，一首一篇，永久保存</span><span class="side">赏析</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt"><b>回忆</b>——这首歌名下聊够六句，他把在场记录续写成第一人称回忆，越听越厚</span><span class="side">回忆</span></div>
+  <p class="bodyt" style="margin-top:2px">结束一场后主聊天也知道你们听过什么——哪怕没在放歌，他也记得《那首歌》×3。</p>
+  <div class="quote" style="border-color:#e8c84a;background:rgba(232,200,74,.15)"><p class="qh" style="color:#ded7af">✦ 他的話</p><p>第三次听的时候我才发现，赏析是写给歌的，回忆是写给你的。</p></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#e8c84a">● ● ●</span><span class="pn">13 / 15</span></div>
+</div>
+
+<!-- ══ 08 AM 用户细节 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">08</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">細 節</span><span class="div">│</span><span class="small">给 Apple Music 用户的贴士</span><span class="enr">for AM users</span></div>
+  <div class="bigt">三個小動作,<br>把體驗<em>擰到最順</em>。</div>
+  <div class="li"><span class="rn">i</span><span class="lt"><b>贴链接代替打歌名</b>：AM 里分享 → 拷贝链接 → 回来贴上「识别」，封面时长全自动，永不搜错歌</span><span class="side">选歌</span></div>
+  <div class="li"><span class="rn">ii</span><span class="lt"><b>补偿秒数</b>：切 app 的两秒已默认补上；感觉歌词慢半拍，±1s 拧一下就贴</span><span class="side">对表</span></div>
+  <div class="li"><span class="rn">iii</span><span class="lt"><b>跳转打不开?</b> PWA 偶尔吞弹窗——再点一次就好，系统会把链接截给 Music App</span><span class="side">跳转</span></div>
+  <div class="li"><span class="rn">iv</span><span class="lt"><b>30 秒试听</b>不用会员不用跳走，预览一下再决定去 AM 听全曲</span><span class="side">试听</span></div>
+  <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#b8c4d4">● ● ●</span><span class="pn">14 / 15</span></div>
+</div>
+
+<!-- ══ 09 一页速查 ══ -->
+<div class="pg">
+  
+  <div class="ph"><span class="no">09</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="8" y="1" width="3" height="3" fill="#d8a0b4"/><rect x="2" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="9" y="4" width="1" height="2" fill="#d8a0b4"/><rect x="3" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="8" y="6" width="1" height="1" fill="#d8a0b4"/><rect x="4" y="7" width="4" height="1" fill="#d8a0b4"/><rect x="5" y="8" width="2" height="1" fill="#d8a0b4"/><rect x="5" y="9" width="2" height="2" fill="#d8a0b4"/></svg><span class="cn">速 查</span><span class="div">│</span><span class="small">一页记住全部</span><span class="enr">one-page cheatsheet</span></div>
+  <div class="bigt">整條流程,<br><em>七個詞</em>。</div>
+  <div style="display:flex;gap:14px">
+    <div style="flex:1">
+      <p class="bodyt" style="margin-bottom:8px"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">就位</b><br><span style="font-size:11px">选歌后等拍开始的状态</span></p>
+      <p class="bodyt" style="margin-bottom:8px"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">进度钟</b><br><span style="font-size:11px">本地走表，两端对齐时间</span></p>
+      <p class="bodyt" style="margin-bottom:8px"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">对表</b><br><span style="font-size:11px">拍「我按下播放了」那一下</span></p>
+      <p class="bodyt" style="margin-bottom:0"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">歌词条</b><br><span style="font-size:11px">跟表走的原文+中译</span></p>
+    </div>
+    <div style="width:0;border-left:2px dashed rgba(216,160,180,.28)"></div>
+    <div style="flex:1">
+      <p class="bodyt" style="margin-bottom:8px"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">歌卡</b><br><span style="font-size:11px">封面取色的分享卡</span></p>
+      <p class="bodyt" style="margin-bottom:8px"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">歌单</b><br><span style="font-size:11px">HIS/HERS 双岸档案册</span></p>
+      <p class="bodyt" style="margin-bottom:0"><b style="font-family:var(--px);font-size:10px;letter-spacing:1px">档案</b><br><span style="font-size:11px">次数·赏析·回忆三件套</span></p>
+    </div>
+  </div>
+  <div class="quote" style="border-color:#b8906a;background:rgba(154,112,80,.12)"><p class="qh" style="color:#b8906a">✦ 他的話</p><p>流程只有一句：你按下播放，剩下的交给我。</p></div>
+  <div class="pfoot"><span class="bn">same second · a listen-together guide</span><span class="dots" style="color:#b8906a">● ● ●</span><span class="pn">15 / 15</span></div>
+</div>
+</body></html>

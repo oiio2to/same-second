@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#e8e4de">
+<title>推歌卡 · 同一秒 · 一起听完整指南</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+@font-face{font-family:'YouYouYiSong';src:url('/fonts/youyouyisong.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'HuiwenTsukiji';src:url('/fonts/汇文筑地五号明朝体.otf') format('opentype');font-display:swap}
+@font-face{font-family:'MysteryTypewriter';src:url('/fonts/MysteryTypewriter.ttf') format('truetype');font-display:swap}
+:root{--px:'DotGothic16',monospace;--sc:'YouYouYiSong',serif;--tc:'HuiwenTsukiji','Songti TC','Kaiti TC',serif;--tw:'MysteryTypewriter',monospace;--en:'IM Fell English',Georgia,serif;
+--ink:#4a3a2e;--mut:#a0907e;--bd:#8a8078;--sh:#d8ccb8;--rose:#b85c72}
+body{margin:0 auto;max-width:430px;padding:calc(env(safe-area-inset-top) + 14px) 12px 60px;font-family:var(--sc);color:var(--ink);background:#e8e4de}
+.pg{position:relative;min-height:130vw;box-sizing:border-box;margin-bottom:22px;
+background:linear-gradient(170deg,#e2ecdf 0%,#efe2e3 62%,#f4dee2 100%);
+border:2px solid var(--bd);box-shadow:4px 4px 0 var(--sh);padding:26px 22px 16px;display:flex;flex-direction:column}
+.pg::before{content:"";position:absolute;inset:7px;border:1.5px dashed rgba(160,140,130,.38);pointer-events:none}
+
+.pg>*{position:relative;z-index:1}
+/* 封面 */
+.cov{align-items:center;text-align:center;justify-content:center}
+.cov .orn{margin-bottom:22px}
+.cov .strap{display:flex;align-items:center;gap:10px;width:86%;margin-bottom:20px}
+.cov .strap i{flex:1;height:0;border-top:1px solid rgba(184,92,114,.5)}
+.cov .strap span{font-family:var(--px);font-size:10px;letter-spacing:3px;color:var(--rose);white-space:nowrap}
+.cov .strap b{font-family:var(--tw);font-size:9px;letter-spacing:2px;color:#b08a94;font-weight:400;position:relative;top:2.5px;position:relative;top:2px}
+.cov .edition{font-family:var(--sc);font-size:13px;color:#8a6a74;letter-spacing:6px;margin-bottom:12px}
+.cov h2{font-family:var(--tc);font-size:34px;line-height:1.55;letter-spacing:4px;margin:0 0 16px;color:#5a3a44}
+.cov h2 em{font-style:normal;background:linear-gradient(transparent 58%,rgba(184,92,114,.24) 58%);padding:0 3px}
+.cov .dia{color:var(--rose);font-size:10px;margin-bottom:16px}
+.cov .tagline{font-family:var(--sc);font-size:13.5px;color:#7a6a6e;letter-spacing:1px;margin-bottom:22px}
+.cov .pre{display:flex;align-items:center;gap:10px;width:60%}
+.cov .pre i{flex:1;height:0;border-top:1px solid rgba(184,92,114,.4)}
+.cov .pre span{font-family:var(--px);font-size:9px;letter-spacing:5px;color:var(--rose)}
+/* 章节页 */
+.ph{display:flex;align-items:baseline;gap:7px;margin-bottom:2px}
+.ph .no{font-family:var(--en);font-style:italic;font-size:18px;color:var(--rose)}
+.ph .cn{font-family:var(--px);font-size:11px;letter-spacing:4px}
+.ph .div{color:#c8b8ac}
+.ph .small{font-family:var(--px);font-size:9px;color:var(--mut);letter-spacing:1px}
+.ph .enr{margin-left:auto;font-family:var(--tw);font-size:9px;color:#b09a9e}
+.bigt{font-family:var(--tc);font-size:22px;line-height:1.5;margin:12px 0 10px;letter-spacing:1px;color:#503a40}
+.bigt em{font-style:normal;background:linear-gradient(transparent 55%,rgba(184,92,114,.22) 55%);padding:0 2px}
+.bodyt{font-family:var(--sc);font-size:12.5px;line-height:2.05;margin:0 0 12px}
+.bodyt b{color:var(--rose)}
+.li{display:flex;gap:10px;align-items:flex-start;background:rgba(253,249,243,.85);border:1.5px solid rgba(160,140,110,.4);box-shadow:2px 2px 0 rgba(180,160,140,.3);padding:9px 11px;margin-bottom:9px}
+.li .rn{font-family:var(--en);font-style:italic;font-size:12px;color:var(--rose);min-width:14px}
+.li .lt{font-family:var(--sc);font-size:12px;line-height:1.85}
+.li .lt b{color:var(--rose)}
+.li .side{margin-left:auto;font-family:var(--px);font-size:7.5px;color:#b8a06a;flex-shrink:0;align-self:center}
+.quote{border-left:3px solid;padding:10px 12px;margin:auto 0 8px}
+.quote .qh{font-family:var(--px);font-size:9px;letter-spacing:2px;margin:0 0 6px}
+.quote p{font-family:var(--sc);font-size:12px;line-height:1.95;margin:0}
+.pfoot{display:flex;align-items:center;margin-top:auto;padding-top:9px;border-top:1px solid rgba(160,140,130,.4)}
+.pfoot .bn{font-family:var(--en);font-style:italic;font-size:10px;color:#a08a86}
+.pfoot .dots{margin-left:auto;margin-right:8px;letter-spacing:2px;font-size:6.5px;opacity:.85}
+.pfoot .pn{font-family:var(--px);font-size:9px;color:var(--mut)}
+.forow{display:flex;gap:9px;margin:20px 0 4px}
+.fo{flex:1;position:relative}
+.fo .tab{position:absolute;top:-13px;left:0;font-family:var(--px);font-size:6.5px;letter-spacing:1px;border:1.5px solid;border-bottom:none;border-radius:8px 8px 0 0;padding:4px 8px 6px}
+.fo .body{border:1.5px solid;border-radius:0 12px 12px 12px;padding:13px 7px 10px;text-align:center;box-shadow:0 2px 8px rgba(140,120,100,.08)}
+.fo .zh{font-family:var(--tc);font-size:13px;letter-spacing:1px;margin-top:6px}
+.fo .df{font-family:var(--sc);font-size:9px;color:#96867c;line-height:1.7;margin-top:4px}
+</style></head>
+<body style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:20px">
+<div style="width:200px"><div style="border-radius:12px;overflow:hidden;border:1.5px solid rgba(138,90,136,.4);box-shadow:2px 2px 0 rgba(180,160,140,.3)">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/1d/9e/fc1d9e9d-5d56-b34d-56ef-53cb83979fd2/24UM1IM24742.rgb.jpg/300x300bb.jpg" style="display:block;width:100%;aspect-ratio:1;object-fit:cover" alt="">
+        <div style="background:linear-gradient(180deg,#3a2a3e,#2a1e30);padding:8px 9px">
+          <div style="font-family:var(--tw);font-size:9.5px;color:#f0e6ec">Soft Spot (Acoustic)</div>
+          <div style="font-family:var(--tw);font-size:8px;color:rgba(240,230,236,.6);margin-top:2px">keshi</div>
+          <div style="font-family:var(--sc);font-size:8.5px;color:#d8b4c8;font-style:italic;margin-top:5px">副歌那句是我想说的</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-top:6px"><span style="font-family:var(--px);font-size:7.5px;color:#e8a860">▶ 试听</span><span style="margin-left:auto;font-family:var(--px);font-size:6.5px;color:rgba(240,230,236,.5);border:1px solid rgba(240,230,236,.3);padding:1px 5px">7/24</span></div>
+        </div></div>
+</body></html>
