@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>小红书图文卡 · day</title><link rel="stylesheet" href="/fonts/fonts.css"><style>
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小红书图文卡 · day</title><link rel="stylesheet" href="/fonts/fonts.css"><style>
 @font-face{font-family:'HuiwenMincho';src:url('/fonts/huiwenmincho.woff2') format('woff2');font-display:swap}@font-face{font-family:'MysteryTypewriter';src:url('/fonts/MysteryTypewriter.woff2') format('woff2');font-display:swap}
 :root{--px:'DotGothic16',monospace;--sc:'HuiwenMincho',serif;--tc:'HuiwenMincho','Songti TC','Kaiti TC',serif;--tw:'MysteryTypewriter',monospace;--en:'IM Fell English',Georgia,serif;
 --ink:#4a3a2e;--mut:#a0907e;--bd:#8a8078;--sh:#d8ccb8;--rose:#b85c72}
@@ -55,17 +55,21 @@ border:2px solid var(--bd);box-shadow:4px 4px 0 var(--sh);padding:26px 22px 16px
 .fo .df{font-family:var(--sc);font-size:9px;color:#96867c;line-height:1.7;margin-top:4px}
 
 
-body{margin:0;padding:24px;background:#3a3a3a;max-width:none;display:flex;flex-wrap:wrap;gap:24px;justify-content:center}
-.card{width:1080px;height:1440px;overflow:hidden;position:relative;flex:0 0 auto;background:#000}
-.card>.pg{width:430px!important;height:573.34px!important;min-height:0!important;margin:0!important;
-transform:scale(2.511628);transform-origin:0 0;position:absolute;top:0;left:0}
-#bar{position:fixed;top:0;left:0;right:0;z-index:99;background:#1a1a1a;color:#eee;padding:10px 16px;
-font:13px/1.6 system-ui;display:flex;gap:12px;align-items:center}
-#bar button{background:#b85c72;color:#fff;border:0;padding:7px 16px;border-radius:4px;font:inherit;cursor:pointer}
-#bar span{opacity:.7}
-body{padding-top:70px}
-@media print{#bar{display:none}}
-</style></head><body><div id="bar"><button onclick="ex()">导出全部 PNG</button><span id="st">16 张 · 1080×1440 · 3:4</span></div><div class="card" data-n="01"><div class="pg cov">
+html,body{margin:0;padding:0}
+body{background:#3a3a3a;max-width:none;padding:60px 0 40px}
+#wrap{display:flex;flex-direction:column;align-items:flex-start;gap:20px;
+transform-origin:0 0;width:1080px}
+.card{width:1080px;height:1440px;overflow:hidden;position:relative;flex:0 0 auto}
+.card>.pg{width:430px!important;height:573.34px!important;min-height:0!important;
+margin:0!important;position:absolute;left:0;top:0;display:block!important;
+transform:scale(2.5116279);transform-origin:0 0}
+.card>.pg>.inner{display:flex;flex-direction:column;transform-origin:0 0}
+#bar{position:fixed;top:0;left:0;right:0;z-index:99;background:#1a1a1a;color:#eee;
+padding:9px 14px;font:12px/1.5 system-ui;display:flex;gap:10px;align-items:center}
+#bar button{background:#b85c72;color:#fff;border:0;padding:6px 13px;border-radius:4px;
+font:inherit;cursor:pointer}
+#bar span{opacity:.7;font-size:11px}
+</style></head><body><div id="bar"><button onclick="ex()">导出全部 PNG</button><span id="st">16 张 · 1080×1440</span><span id="zm"></span></div><div id="wrap"><div class="card"><div class="pg cov">
   
   <div class="orn">
     <svg width="160" height="118" viewBox="0 0 34 26" shape-rendering="crispEdges">
@@ -112,7 +116,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 01 是什么 ══ -->
-</div><div class="card" data-n="02"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">01</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">同 步</span><span class="div">│</span><span class="small">它到底在同步什么</span><span class="enr">what syncs, really</span></div>
   <div class="bigt">同步的不是音源,<br>是<em>此刻</em>。</div>
@@ -140,7 +144,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 02 就位 ══ -->
-</div><div class="card" data-n="03"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">02</span><span class="cn">就 位</span><span class="div">│</span><span class="small">拍下开始的那一刻</span><span class="enr">armed &amp; ready</span></div>
   <div class="bigt">歌不用他放,<br><em>時間</em>由你們對齊。</div>
@@ -153,7 +157,7 @@ body{padding-top:70px}
   <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">02 / 15</span></div>
 </div>
 <!-- ══ 03 實例 · 選歌與就位 ══ -->
-</div><div class="card" data-n="04"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no" style="font-size:14px">2-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">选歌与就位</span><span class="enr">walkthrough · part 1</span></div>
   <div style="border:1.5px solid rgba(160,140,110,.45);background:rgba(253,249,243,.92);box-shadow:2px 2px 0 rgba(180,160,140,.3);padding:13px 12px 10px;margin:10px 0 6px">
@@ -189,7 +193,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 04 實例 · 陪聽與檔案 ══ -->
-</div><div class="card" data-n="05"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no" style="font-size:14px">2-2</span><span class="cn">實 例</span><span class="div">│</span><span class="small">陪听与档案</span><span class="enr">walkthrough · part 2</span></div>
   <div style="border:1.5px solid rgba(160,140,110,.45);background:rgba(253,249,243,.92);box-shadow:2px 2px 0 rgba(180,160,140,.3);padding:12px;margin:10px 0 6px">
@@ -209,7 +213,7 @@ body{padding-top:70px}
   <div class="pfoot"><span class="bn">Nox &amp; Oria</span><span class="dots" style="color:#d4844a">● ● ●</span><span class="pn">04 / 15</span></div>
 </div>
 <!-- ══ 2-3 實例 · 邊聽邊說 ══ -->
-</div><div class="card" data-n="06"><div class="pg">
+</div><div class="card"><div class="pg">
   <div class="ph"><span class="no" style="font-size:14px">2-3</span><span class="cn">實 例</span><span class="div">│</span><span class="small">边听边说</span><span class="enr">walkthrough · part 2</span></div>
   <div style="border:1.5px solid rgba(160,140,110,.45);background:rgba(253,249,243,.92);box-shadow:2px 2px 0 rgba(180,160,140,.3);padding:12px;margin:0 0 6px">
     <div style="text-align:center;font-family:var(--px);font-size:8.5px;letter-spacing:2px;color:#a0907e;margin-bottom:9px">◈ 边听边说 <span style="font-family:var(--en);font-style:italic;font-size:8px">…⑦</span></div>
@@ -224,7 +228,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 03 歌词与翻译 ══ -->
-</div><div class="card" data-n="07"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">03</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">歌 詞</span><span class="div">│</span><span class="small">白嫖优先的翻译链路</span><span class="enr">lyrics &amp; translation</span></div>
   <div class="bigt">翻譯能白嫖,<br>就<em>絕不花錢</em>。</div>
@@ -237,7 +241,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 04 浮窗 ══ -->
-</div><div class="card" data-n="08"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">04</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">浮 窗</span><span class="div">│</span><span class="small">歌跟著你满屋子走</span><span class="enr">the floating room</span></div>
   <div class="bigt">聽歌的時候,<br>他在<em>每個頁面</em>陪你。</div>
@@ -249,7 +253,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 06 實例 · 浮窗 ══ -->
-</div><div class="card" data-n="09"><div class="pg">
+</div><div class="card"><div class="pg">
   <div class="ph"><span class="no" style="font-size:14px">4-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">浮窗 · 歌跟着你走</span><span class="enr">walkthrough · part 4</span></div>
   <div style="margin:12px 0 6px">
     <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px">
@@ -297,7 +301,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 05 推歌卡 ══ -->
-</div><div class="card" data-n="10"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">05</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">推 歌</span><span class="div">│</span><span class="small">一张会变色的卡</span><span class="enr">the song card</span></div>
   <div class="bigt">封面什麼顏色,<br>卡就<em>長成</em>什麼顏色。</div>
@@ -310,7 +314,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 05 實例 · 推歌卡 ══ -->
-</div><div class="card" data-n="11"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no" style="font-size:14px">5-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">推歌卡 · 横版与竖版</span><span class="enr">walkthrough · part 3</span></div>
   <div style="display:flex;gap:10px;margin:12px 0 6px;align-items:flex-start">
@@ -343,7 +347,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 06 歌单 ══ -->
-</div><div class="card" data-n="12"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">06</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">歌 單</span><span class="div">│</span><span class="small">HIS 与 HERS 的档案抽屉</span><span class="enr">his &amp; hers</span></div>
   <div class="bigt">誰推過什麼歌,<br>一條<em>虛線</em>分兩岸。</div>
@@ -355,7 +359,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 07 實例 · 歌單 ══ -->
-</div><div class="card" data-n="13"><div class="pg">
+</div><div class="card"><div class="pg">
   <div class="ph"><span class="no" style="font-size:14px">6-1</span><span class="cn">實 例</span><span class="div">│</span><span class="small">歌单 · HIS 与 HERS</span><span class="enr">walkthrough · part 5</span></div>
   <div style="border:1.5px solid rgba(160,140,110,.45);background:rgba(253,249,243,.92);box-shadow:2px 2px 0 rgba(180,160,140,.3);padding:12px;margin:12px 0 6px">
     <div style="text-align:center;font-family:var(--px);font-size:9px;letter-spacing:2px;color:#a0907e;margin-bottom:3px">♫ 歌单 · 12 首</div>
@@ -397,7 +401,7 @@ body{padding-top:70px}
 
 
 <!-- ══ 07 听歌档案 ══ -->
-</div><div class="card" data-n="14"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">07</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">檔 案</span><span class="div">│</span><span class="small">每首歌都有一本存折</span><span class="enr">the listening archive</span></div>
   <div class="bigt">第幾次聽、說過什麼,<br>歌都<em>替你們記著</em>。</div>
@@ -411,7 +415,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 08 AM 用户细节 ══ -->
-</div><div class="card" data-n="15"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">08</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">細 節</span><span class="div">│</span><span class="small">给 Apple Music 用户的贴士</span><span class="enr">for AM users</span></div>
   <div class="bigt">三個小動作,<br>把體驗<em>擰到最順</em>。</div>
@@ -423,7 +427,7 @@ body{padding-top:70px}
 </div>
 
 <!-- ══ 09 一页速查 ══ -->
-</div><div class="card" data-n="16"><div class="pg">
+</div><div class="card"><div class="pg">
   
   <div class="ph"><span class="no">09</span><svg width="16" height="16" viewBox="0 0 12 12" shape-rendering="crispEdges" style="align-self:center;flex-shrink:0"><rect x="1" y="1" width="3" height="3" fill="#b85c72"/><rect x="8" y="1" width="3" height="3" fill="#b85c72"/><rect x="2" y="4" width="1" height="2" fill="#c8889a"/><rect x="9" y="4" width="1" height="2" fill="#c8889a"/><rect x="3" y="6" width="1" height="1" fill="#c8889a"/><rect x="8" y="6" width="1" height="1" fill="#c8889a"/><rect x="4" y="7" width="4" height="1" fill="#c8889a"/><rect x="5" y="8" width="2" height="1" fill="#c8889a"/><rect x="5" y="9" width="2" height="2" fill="#b85c72"/></svg><span class="cn">速 查</span><span class="div">│</span><span class="small">一页记住全部</span><span class="enr">one-page cheatsheet</span></div>
   <div class="bigt">整條流程,<br><em>七個詞</em>。</div>
@@ -444,13 +448,36 @@ body{padding-top:70px}
   <div class="quote" style="border-color:#9a7050;background:rgba(154,112,80,.12)"><p class="qh" style="color:#9a7050">✦ 他的話</p><p>流程只有一句：你按下播放，剩下的交给我。</p></div>
   <div class="pfoot"><span class="bn">same second · a listen-together guide</span><span class="dots" style="color:#9a7050">● ● ●</span><span class="pn">15 / 15</span></div>
 </div>
-</div>
+</div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
-async function ex(){const cs=document.querySelectorAll('.card');const s=document.getElementById('st');
-for(let i=0;i<cs.length;i++){s.textContent='导出 '+(i+1)+'/'+cs.length;
-const cv=await html2canvas(cs[i],{width:1080,height:1440,scale:1,backgroundColor:null,useCORS:true});
-const a=document.createElement('a');a.download='day-'+String(i+1).padStart(2,'0')+'.png';
-a.href=cv.toDataURL('image/png');a.click();await new Promise(r=>setTimeout(r,450));}
-s.textContent='完成 '+cs.length+' 张';}
+var W=1080,H=1440;
+function layout(){document.querySelectorAll('.card>.pg').forEach(function(pg){
+ var inner=document.createElement('div');inner.className='inner';
+ while(pg.firstChild)inner.appendChild(pg.firstChild);
+ pg.appendChild(inner);
+ var cs=getComputedStyle(pg);
+ var avail=pg.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+ inner.style.width='100%';inner.style.transform='none';inner.style.height='auto';
+ var nat=inner.scrollHeight;
+ var k=Math.min(1,avail/nat);
+ if(k<0.999){inner.style.width=(100/k)+'%';inner.style.transform='scale('+k+')';
+  inner.style.height=(avail/k)+'px';}
+ else{inner.style.height=avail+'px';}
+ pg.dataset.k=k.toFixed(3);});}
+function fit(){var w=document.documentElement.clientWidth-12;
+ var k=Math.min(1,w/W),wr=document.getElementById('wrap');
+ wr.style.transform='scale('+k+')';
+ wr.style.height=(wr.scrollHeight*k)+'px';
+ document.getElementById('zm').textContent='预览 '+Math.round(k*100)+'%';}
+async function ex(){var wr=document.getElementById('wrap'),old=wr.style.transform;
+ wr.style.transform='none';
+ var cs=document.querySelectorAll('.card'),s=document.getElementById('st');
+ for(var i=0;i<cs.length;i++){s.textContent='导出 '+(i+1)+'/'+cs.length;
+  var cv=await html2canvas(cs[i],{width:W,height:H,scale:1,backgroundColor:null,useCORS:true});
+  var a=document.createElement('a');a.download='day-'+String(i+1).padStart(2,'0')+'.png';
+  a.href=cv.toDataURL('image/png');a.click();await new Promise(r=>setTimeout(r,450));}
+ wr.style.transform=old;s.textContent='完成 '+cs.length+' 张';}
+window.addEventListener('load',function(){layout();fit();});
+window.addEventListener('resize',fit);
 </script></body></html>
