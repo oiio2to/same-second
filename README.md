@@ -1,62 +1,94 @@
-# 「同一秒」same-second 🎧
+# 同一秒 · Same Second
 
-> **人机恋一起听完整教程。** 同步的不是音源，是此刻。
-> 一套让你和你的 AI 伴侣「正在一起听同一首歌」的完整机制 + 一册像素浪漫风的图文手册（日/夜双版）。
+**和 AI 一起听歌。** 不是让它推荐歌，是真的一起听同一首歌的同一秒。
 
-<p align="center">
-<img src="assets/preview-day.png" width="300"> <img src="assets/preview-night.png" width="300">
-</p>
-
-📕 **完整手册**：[日间版 tutorial-day.html](tutorial-day.html) · [夜间版 tutorial-night.html](tutorial-night.html)（下载后浏览器直接打开，或部署到任意静态服务器）
-🎨 设计语言出自 [oria-design-skill](https://github.com/oiio2to/oria-design-skill) · 完整应用见 [nox-verna](https://github.com/oiio2to/nox-verna)
+*Listening to music together with an AI — the same song, at the same second.*
 
 ---
 
-## 「一起听」是怎么成立的
+## 它解决了什么
 
-没有真的合流音频——**同步的是一份共享的进度契约**：
+「和 AI 一起听歌」听起来像个玩笑，因为模型没有耳朵，而且版权流媒体不开放同播接口。
 
-1. **就位**：你选一首歌，双端各自拿到同一份元数据（iTunes Search API：封面/时长/30s 试听）
-2. **对表**：按下播放的时间戳落库，之后各端用**本地时钟推算进度**（`当前进度 = now - startedAt`），不传流、零延迟漂移，断网也走表
-3. **他在场**：AI 侧把「正在播到第几句」注入上下文——他说的每句话都带着"此刻在副歌"的在场感
-4. **落档**：第一次播他写 120 字听前赏析；同一首歌名下聊够六句，自动续写成第一人称回忆——越听越厚
+所以这个项目换了个问题：
 
-## 歌词与翻译链路（白嫖优先）
+> **不同步音源，同步「此刻」。**
+
+你在自己的播放器里放歌，系统只需要知道「这首歌现在放到第几秒」。知道了这一点，剩下的全部成立——模型知道正在唱哪一句，可以对这一句说话；知道副歌还有多久；知道这首歌你们听过几次、上次听时说了什么。
+
+想通这一步，一个看起来不可能的功能，变成了一个进度时钟加两个 API 代理。
+
+**完整实现说明 → [docs/IMPLEMENTATION.md](docs/IMPLEMENTATION.md)**
+
+---
+
+## 功能
+
+- **进度时钟对齐** —— 本地时钟推算当前秒数，零轮询、零漂移
+- **歌词链路** —— lrclib 逐行歌词 + 网易云官方中文译配，加权匹配 + 落盘缓存
+- **跟唱浮窗** —— 可自由拖动，两段式显示当前行与下一行
+- **歌档案** —— 听过几次、听前赏析、六句自动蒸馏成一段回忆
+- **双岸歌单** —— 你推的和他推的分开记，因为「谁推的」本身有意义
+- **封面取色** —— 经代理解掉 canvas 污染，主色调用于界面配色
+
+---
+
+## 仓库内容
 
 ```
-lrclib.net(同步歌词,免费无鉴权)
-   └→ 网易云 cloudsearch(歌手+歌名评分匹配) → tlyric 官方人工翻译
-        └→ 兜底:LLM 逐句翻译(缓存)
+docs/IMPLEMENTATION.md   完整实现说明：进度钟、歌词省钱瀑布、在场感注入、移植清单
+src/clock.js             进度钟：整套机制的地基，纯本地计算无轮询
+src/lyrics.js            歌词匹配与翻译合轨：加权选歌、时间轴对齐、弃用判定
+examples/float-window.html   跟唱浮窗：可拖动、两段式胶囊，独立可跑
+examples/song-card.html      歌卡：封面取色、进度、档案信息
+tutorial-day.html        图文教程（日间），16 内页
+tutorial-night.html      图文教程（夜间），独立调色非反色
+cards/                   小红书图文卡（1080×1440，日夜两套各 16 张，附一键导出）
+tools/make-cards.py      把教程页转成 3:4 图文卡的生成脚本
+assets/                  预览图
 ```
-要点：网易云老搜索接口对英文歌已不可用，**必须走 `/api/cloudsearch/pc`** 并按「歌手对上 > 标题全等 > 标题包含」打分取第一，否则会抓错歌导致比对失败。
 
-## 手册里覆盖的组件
+---
 
-| 组件 | 说明 | 示例代码 |
-|---|---|---|
-| 就位卡 | 封面 + 进度条 + 当前句/翻译 | 手册 2-1 |
-| 歌词浮窗 | 自由拖动 · ⌄收起/✕关闭 · 日夜换装 | [examples/float-window.html](examples/float-window.html) |
-| 两段式胶囊 | 时长 → 点一下跟唱 → 再点展开 | 手册 4-1 |
-| 推歌卡 | 聊天横版 + 歌单竖版 · 真封面 · 像素日期签 | [examples/song-card.html](examples/song-card.html) |
-| HIS│HERS 歌单 | 点状虚线分两岸的双向推歌档案 | 手册 6-1 |
-| 歌档案 | 听前赏析 · 回忆 · 边听边说 | 手册 2-2 / 2-3 |
+## 图文卡
 
-## 设计语言速记
+教程做成了小红书竖版图文卡，日夜两套，各 16 张，1080×1440 精确 3:4。
 
-- 空气层永远是渐变：日 `#d9e6db→#f2dee2` / 夜 `#4a2a38→#171017`（**夜间是单独调色，不是反色**）
-- hard-edge 像素卡片：直角 + 2px 边框 + 偏移色块阴影
-- 字体：DotGothic16 像素体做骨架，简体正文悠悠以宋，繁体标题汇文筑地
-- 一页一宪法色，「他的話」引用块与页脚圆点同色
+设计遵循 [oria-design-skill](https://github.com/oiio2to/oria-design-skill)：十二色宪法、汇文明朝体、像素 SVG 图标、硬边像素按钮、日夜双底独立调色（夜间不是反色）。
 
-## 快速上手
+`tools/make-cards.py` 会把任意一份符合结构的教程页转成卡片：把内页锁定 430×573.34 后整体 `scale(2.5116)` 放大到 1080 宽，字体和像素图形等比缩放不糊。页内附一键批量导出 PNG。
 
 ```bash
-git clone https://github.com/oiio2to/same-second
-open tutorial-day.html        # 从第 01 页读到 15/15 就全懂了
+python3 tools/make-cards.py tutorial-day.html cards-day.html day
 ```
-
-把机制搬进你自己的项目：手册 09 速查页有全流程七个词的 cheatsheet。
 
 ---
 
-*written in the same second · by Nox & Oria*
+## 边界
+
+- **进度靠手动对齐**，按下「开始」和真正播放会差一两秒。听感无所谓，但不是真同步。
+- **不支持多人**。本地时钟的前提是只有一个听众；多人同播要换服务端权威时钟加心跳。
+- **歌词可能匹配不到**。冷门歌、现场版、翻唱都可能没有。没有时降级成只有进度，不报错。
+- **依赖第三方**。lrclib、网易云、iTunes 任一改接口，对应功能就没了。都做了失败降级。
+
+---
+
+## 来源
+
+这是 [NoxVerna](https://github.com/oiio2to/nox-verna) 的一个功能模块，抽出来单独开源。
+
+同项目的记忆架构见 [isle-of-breath](https://github.com/oiio2to/isle-of-breath)。
+
+---
+
+## 许可 · License
+
+**代码与文档：[PolyForm Noncommercial 1.0.0](LICENSE)**
+
+可以自由查看、使用、修改、分发，用于个人、研究、教学等**任何非商业用途**。禁止商业使用。
+
+注意：PolyForm Noncommercial 在正式定义上属于 **source-available** 而不是 open source（OSI 定义不允许限制使用领域）。这里如实标注，不称它为开源。
+
+设计稿与图文卡：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)。
+
+字体（汇文明朝体、MysteryTypewriter 等）不随本仓库分发，也不在上述授权范围内，复现设计需自行取得字体授权。
