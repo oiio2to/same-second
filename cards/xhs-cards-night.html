@@ -454,9 +454,12 @@ font:inherit;cursor:pointer}
 var W=1080,H=1440;
 function layout(){document.querySelectorAll('.card>.pg').forEach(function(pg){
  var inner=document.createElement('div');inner.className='inner';
+ var pcs=getComputedStyle(pg);
+ var keep=['alignItems','justifyContent','textAlign','gap','rowGap'];
  while(pg.firstChild)inner.appendChild(pg.firstChild);
  pg.appendChild(inner);
- var cs=getComputedStyle(pg);
+ keep.forEach(function(k){inner.style[k]=pcs[k];});
+ var cs=pcs;
  var avail=pg.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
  inner.style.width='100%';inner.style.transform='none';inner.style.height='auto';
  var nat=inner.scrollHeight;
